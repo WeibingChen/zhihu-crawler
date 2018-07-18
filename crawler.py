@@ -18,7 +18,7 @@ from worker import conn
 from lxml import html
 from mysql import MySQL
 from html_parser import HtmlParser
-from bloom_filter import BloomFilter
+from bloomfilter import BloomFilter
 from proxy import Proxy
 from requests.packages.urllib3.exceptions import InsecureRequestWarning
 

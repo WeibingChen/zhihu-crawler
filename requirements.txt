@@ -1,3 +1,8 @@
 lxml
 requests
-rq
+# RQ is a simple, lightweight, library for creating background jobs, and processing them.
+rq==0.12.0
+# Python bindings for Google Murmurhash2 hash algorithm
+mmh3==2.5.1
+# efficient arrays of booleans -- C extension
+bitarray==0.8.3

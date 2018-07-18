@@ -3,9 +3,10 @@
 
 import mmh3
 from bitarray import bitarray
+import numpy as np
 
 """
-zhihu_crawler.bloom_filter
+zhihu_crawler.bloomfilter
 
 Implement a simple bloom filter with murmurhash algorithm.
 Bloom filter is used to check wether an element exists in a collection, and it has a good performance in big data situation.
@@ -55,5 +56,29 @@ class BloomFilter:
         point7 = mmh3.hash(url, 47) % BIT_SIZE
 
 
-        return [point1, point2, point3, point4, point5, point6, point7]
+        return (point1, point2, point3, point4, point5, point6, point7)
         
+
+def main(argv=None):
+    bloom = BloomFilter()
+    target_url = "http://baidu.com"
+    urls = (target_url, "http://google.com", "http://facebook.com")
+
+    for url in urls:
+        bloom.add(url)
+
+    print(bloom.contains(target_url))
+    print(bloom.contains("http://validurl.com"))
+
+if __name__ == '__main__':
+    # main()
+    url = "http://baidu.com"
+    print(mmh3.hash(url, 41)%BIT_SIZE)
+    print(mmh3.hash(url, 42)%BIT_SIZE)
+    print(mmh3.hash(url, 43)%BIT_SIZE)
+    print(mmh3.hash(url, 44)%BIT_SIZE)
+    print(mmh3.hash(url, 45)%BIT_SIZE)
+    print(mmh3.hash(url, 46)%BIT_SIZE)
+    print(mmh3.hash(url, 47)%BIT_SIZE)
+
+
